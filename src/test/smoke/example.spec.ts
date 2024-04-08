@@ -5,4 +5,5 @@ test('basic test', async ({ page }) => {
   const pageTitle = await page.title();
   expect(pageTitle).toBe('Example Domain');
 
+
 });
