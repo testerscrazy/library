@@ -1,0 +1,14 @@
+name: Enforce Branch Naming
+
+on: push
+
+jobs:
+  check-branch-name:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check if branch name starts with KAN-
+        run: |
+          if [[ ! $GITHUB_REF =~ ^refs/heads/KAN-.*$ ]]; then
+            echo "Branch name does not start with 'KAN-' prefix"
+            exit 1
+          fi
