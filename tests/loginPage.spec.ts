@@ -1,5 +1,5 @@
 import { expect, test } from "playwright/test";
-import { LoginPage } from "../../pages/loginPage";
+import { LoginPage } from "../pages/loginPage";
 const { chromium } = require('playwright-core');
 
 let browser;
