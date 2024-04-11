@@ -19,7 +19,7 @@ test.beforeEach(async({page})=>{
 })
 
 
-test("As a User I verify that the Practice login page exist", async ({ page }) => {
+test("As a Student I verify that the Practice login page exist", async ({ page }) => {
 
     loginPage = new LoginPage(page);
     await expect(page.url()).toEqual(process.env.library_url);
