@@ -22,13 +22,13 @@ test.beforeEach(async({page})=>{
 test("As a Student I verify that the library login page exist", async ({ page }) => {
 
     loginPage = new LoginPage(page);
-    await expect(page.url()).toEqual(process.env.library_url+"/login.html");
+    await expect(page.url()).toEqual(process.env.LIBRARY_URL+"/login.html");
 
 })
 
 test("As a Student when I login to library page with valid username and password and verify that I'm at library page ", async ({ page }) => {
   
     loginPage = new LoginPage(page);
-    await loginPage.login(process.env.student_username || '', process.env.student_password || '');
-    await expect(page.url()).toEqual(process.env.library_url+"/login.html");
+    await loginPage.login(process.env.STUDENT_USERNAME || '', process.env.STUDENT_PASSWORD || '');
+    await expect(page.url()).toEqual(process.env.LIBRARY_URL+"/login.html");
 })
