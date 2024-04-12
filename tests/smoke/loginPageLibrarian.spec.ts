@@ -18,5 +18,5 @@ test.beforeEach(async({page})=>{
 
 test("Librarian login with valid credential", async({page})=>{
     loginPage = new LoginPage(page);
-    await loginPage.login(process.env.librarianUsername || '', process.env.librarianPassword || '');
+    await loginPage.login(process.env.LIBRARIAN_USERNAME || '', process.env.LIBRARIAN_PASSWORD || '');
 })
