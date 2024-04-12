@@ -26,3 +26,9 @@ test("As a Student I verify that the library login page exist", async ({ page })
 
 })
 
+test("As a Student when I login to library page with valid username and password and verify that I'm at library page ", async ({ page }) => {
+  
+    loginPage = new LoginPage(page);
+    await loginPage.login(process.env.student_username || '', process.env.student_password || '');
+    await expect(page.url()).toEqual(process.env.library_url);
+})
