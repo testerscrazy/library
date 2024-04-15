@@ -28,3 +28,11 @@ test("Librarian should see “Error: Please enter a valid password” error mess
   const invalidPasswordMessege = page.getByText("Error: Please enter a valid password");
   expect(invalidPasswordMessege.isVisible)
 })
+
+test.afterEach(async ({ page }) => {
+    await page.close();
+});
+
+test.afterAll(async ({ browser }) => {
+    await browser.close();
+})
