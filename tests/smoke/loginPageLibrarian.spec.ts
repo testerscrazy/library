@@ -16,12 +16,14 @@ test.beforeEach(async({page})=>{
     loginPage = new LoginPage(page);
     await loginPage.gotoLoginPage();
 })
-
-test("Librarian should see “Sorry, Wrong Email or Password” message, when they attempt to login without providing credential email.", async({page})=>{
+    
+test("Librarian login with invalid email, they should see “Sorry, Wrong Email or Password” message.", async({page})=>{
     loginPage = new LoginPage(page);
-    await loginPage.login("invalidEmail", process.env.LIBRARIAN_PASSWORD || '');
-    const invalidEmailMessage =  page.getByText("Sorry, Wrong Email or Password");
-    expect(invalidEmailMessage.isVisible);
+    await loginPage.login('invalidEmail', process.env.LIBRARIAN_PASSWORD || '');
+    const invalidEmailMessege = page.getByText("Sorry, Wrong Email or Password");
+    
+    expect(invalidEmailMessege.isVisible)
 
 
 })
+
