@@ -19,4 +19,5 @@ test.beforeEach(async({page})=>{
 test("Librarian login with valid credential", async({page})=>{
     loginPage = new LoginPage(page);
     await loginPage.login(process.env.LIBRARIAN_USERNAME || '', process.env.LIBRARIAN_PASSWORD || '');
+    expect(page.url()).toEqual(process.env.LIBRARY_URL + "/login.html");
 })
