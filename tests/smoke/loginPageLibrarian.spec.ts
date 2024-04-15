@@ -22,9 +22,9 @@ test("Librarian login with invalid email, they should see “Sorry, Wrong Email 
     await loginPage.login(process.env.LIBRARIAN_USERNAME || '', process.env.LIBRARIAN_PASSWORD || '');
 })
 
-test("Librarian login with invalid password, they should see “Sorry, Wrong Email or Password” message.", async({page}) =>{
+test("Librarian should see “Error: Please enter a valid password” error message, when they attempt to login without providing a password.", async({page}) =>{
   loginPage = new LoginPage(page);
-  await loginPage.login(process.env.LIBRARIAN_USERNAME || '', 'invalidPassword');
-  const invalidPasswordMessege = page.getByText("Sorry, Wrong Email or Password");
+  await loginPage.login(process.env.LIBRARIAN_USERNAME || '', '');
+  const invalidPasswordMessege = page.getByText("Error: Please enter a valid password");
   expect(invalidPasswordMessege.isVisible)
 })
