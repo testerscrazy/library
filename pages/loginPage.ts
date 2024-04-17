@@ -15,4 +15,9 @@ export class LoginPage extends BasePage{
         await this.getSigninButton.click()
     }
 
+    async errorMessage(){
+        const titleText = await this.getErrorMessage.innerText();
+        return titleText;
+    }
+
 }
