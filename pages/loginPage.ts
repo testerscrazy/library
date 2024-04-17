@@ -15,6 +15,11 @@ export class LoginPage extends BasePage{
         await this.getSigninButton.click()
     }
 
+    async errorMessage(){
+        const titleText = await this.getErrorMessage.innerText();
+        return titleText;
+    }
+
     async passwordErrorMessage(){
         const titleText = await this.getPasswordErrorMessage.innerText({ timeout: 30000 });
         return titleText;
@@ -25,6 +30,5 @@ export class LoginPage extends BasePage{
         const titleText = await this.getEmailErrorMessage.innerText({ timeout: 30000 });
         return titleText;
     }
-
 
 }
