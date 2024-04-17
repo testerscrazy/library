@@ -18,6 +18,7 @@ export class BasePage{
             this.getErrorMessage = page.locator('#inputEmail-error')
             this.getPasswordErrorMessage = page.locator(':text-is("Sorry, Wrong Email or Password")')
             this.getEmailErrorMessage = page.locator(':text-is("Please enter a valid email address.")')
+            this.getErrorMessage = page.getByRole('alert')
         }
     }
 
