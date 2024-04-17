@@ -24,4 +24,11 @@ export class LoginPage extends BasePage{
         const titleText = await this.getPasswordErrorMessage.innerText({ timeout: 30000 });
         return titleText;
     }
+
+
+    async emailErrorMessage(){
+        const titleText = await this.getEmailErrorMessage.innerText({ timeout: 30000 });
+        return titleText;
+    }
+
 }
