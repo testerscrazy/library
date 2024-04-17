@@ -41,7 +41,7 @@ test("Student click the login button after entering valid username and invalid p
     await loginPage.getSigninButton.click();
 
     const expectedErrorMessage = "Sorry, Wrong Email or Password"; 
-    const actualErrorMessage = await loginPage.passwordErrorMessage();
+    const actualErrorMessage = await loginPage.errorMessage();
     expect(actualErrorMessage).toEqual(expectedErrorMessage);
 })
 
