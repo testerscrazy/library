@@ -32,7 +32,7 @@ test("Student go directly to the library page without login and verify the error
     await loginPage.getSigninButton.click()
     const expectedErrorMessage = "This field is required.";
     const actualErrorMessage = await loginPage.errorMessage();
-    await expect(actualErrorMessage).toEqual(expectedErrorMessage);
+    expect(actualErrorMessage).toEqual(expectedErrorMessage);
 })
 
 test("Student click the login button after entering valid username and invalid password in the login page and  verify the error message", async ({ page }) => {
