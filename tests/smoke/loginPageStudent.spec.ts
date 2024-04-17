@@ -35,6 +35,15 @@ test("Student go directly to the library page without login and verify the error
     await expect(actualErrorMessage).toEqual(expectedErrorMessage);
 })
 
+test("Student click the login button after entering valid username and invalid password in the login page and  verify the error message", async ({ page }) => {
+    loginPage = new LoginPage(page);
+    await loginPage.login(process.env.STUDENT_USERNAME || '', 'invalid-password');
+    await loginPage.getSigninButton.click();
+    const expectedErrorMessage = "Sorry, Wrong Email or Password";
+    const actualErrorMessage = await loginPage.passwordErrorMessage();
+    expect(actualErrorMessage).toEqual(expectedErrorMessage);
+})
+
 test.afterEach(async ({ page }) => {
     await page.close();
 });
