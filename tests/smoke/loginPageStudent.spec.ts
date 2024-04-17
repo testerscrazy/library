@@ -32,3 +32,12 @@ test("As a Student when I login to library page with valid username and password
     await loginPage.login(process.env.STUDENT_USERNAME || '', process.env.STUDENT_PASSWORD || '');
     await expect(page.url()).toEqual(process.env.LIBRARY_URL+"/login.html");
 })
+
+test("Student go directly to the library page without login and verify the error message", async ({ page }) => {
+    loginPage = new LoginPage(page);
+    await loginPage.getSigninButton.click()
+    const expectedErrorMessage = "This field is required.";
+    const actualErrorMessage = await loginPage.errorMessage();
+    await expect(actualErrorMessage).toEqual(expectedErrorMessage);
+   
+})
