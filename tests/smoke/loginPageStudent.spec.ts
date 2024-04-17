@@ -52,7 +52,7 @@ test("As a Student when I click the login button with entering invalid username 
     await loginPage.login(process.env.STUDENT_PASSWORD || '', 'invalid-username');
     await loginPage.getSigninButton.click();
     const expectedErrorMessage = "Please enter a valid email address."; 
-    const actualErrorMessage = await loginPage.emailErrorMessage();
+    const actualErrorMessage = await loginPage.errorMessage();
     expect(actualErrorMessage).toEqual(expectedErrorMessage);
 })
 
