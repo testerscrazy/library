@@ -15,4 +15,10 @@ export class LoginPage extends BasePage{
         await this.getSigninButton.click()
     }
 
+    async passwordErrorMessage(){
+        const titleText = await this.getPasswordErrorMessage.innerText({ timeout: 30000 });
+        return titleText;
+    }
+
+
 }
