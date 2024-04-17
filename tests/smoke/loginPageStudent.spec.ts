@@ -38,8 +38,19 @@ test("Student click the login button after entering valid username and invalid p
     loginPage = new LoginPage(page);
     await loginPage.login(process.env.STUDENT_USERNAME || '', 'invalid-password');
     await loginPage.getSigninButton.click();
-    const expectedErrorMessage = "Sorry, Wrong Email or Password"; // This poses a security risk. The error message should not reveal whether the password is invalid.
+    const expectedErrorMessage = "Sorry, Wrong Email or Password"; 
     const actualErrorMessage = await loginPage.passwordErrorMessage();
+    expect(actualErrorMessage).toEqual(expectedErrorMessage);
+})
+
+
+
+test("As a Student when I click the login button with entering invalid username and a valid password in the login page and then verify the error message", async ({ page }) => {
+    loginPage = new LoginPage(page);
+    await loginPage.login(process.env.STUDENT_PASSWORD || '', 'invalid-username');
+    await loginPage.getSigninButton.click();
+    const expectedErrorMessage = "Please enter a valid email address."; 
+    const actualErrorMessage = await loginPage.emailErrorMessage();
     expect(actualErrorMessage).toEqual(expectedErrorMessage);
 })
 

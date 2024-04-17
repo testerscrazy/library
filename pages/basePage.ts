@@ -7,6 +7,7 @@ export class BasePage{
         readonly getPassword: Locator;
         readonly getSigninButton: Locator;
         readonly getPasswordErrorMessage: Locator;
+        readonly getEmailErrorMessage: Locator;
     
     
         constructor(page: Page){
@@ -17,6 +18,7 @@ export class BasePage{
             this.getSigninButton = page.locator('button[type="submit"]')
 
             this.getPasswordErrorMessage = page.locator(':text-is("Sorry, Wrong Email or Password")')
+            this.getEmailErrorMessage = page.locator(':text-is("Please enter a valid email address.")')
         }
 
 
